@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Image Detection</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: sans-serif;
+      background-color: #fef8fb;
+      overflow: auto;
+      scrollbar-width: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #6b0411;
+    }
+
+    header, footer {
+      text-align: center;
+      background-color: #ecac1c;
+      color: #6b0411;
+      height: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid black;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px;
+    }
+
+    h1 {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    h1 i {
+      font-size: 2em;
+    }
+
+    .heading {
+      text-align: center;
+      width: fit-content;
+    }
+
+    input[type="file"] {
+      width: 80%;
+      margin: 40px 0;
+      border: 2px solid black;
+      border-radius: 15px;
+      padding: 10px;
+      background-color: white;
+    }
+
+    footer i {
+      color: #6b0411;
+    }
+
+    button {
+      background-color: #ecac1c;
+      color: #6b0411;
+      border: 1px solid #6b0411;
+      font-family: sans-serif;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 0.5em 2em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #6b0411;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header><a href="{{ url_for('index') }}">Back to Home Page</a></header>
+  
+  <div class="container"> 
+    <div class="heading">
+      <h1>
+        Check to see if <br />an image is fake.<i class="bx bxs-image"></i>
+      </h1>
+    </div>
+
+    <!-- Flask form starts here -->
+    <form action="{{ url_for('image_check') }}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" required />
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+      {{ result }}
+    </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    <i class="bx bxs-heart"></i>
+    Made by Samriddhi, Harshvardhan, Sumedha, Himalay, Aditi, Kashish
+    <i class="bx bxs-heart"></i>
+  </footer>
+</body>
+</html>

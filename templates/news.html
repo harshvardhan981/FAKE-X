@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake News Checker</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: sans-serif;
+        background-color: #fef8fb;
+        overflow: auto;
+        scrollbar-width: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #6b0411;
+      }
+
+      header,
+      footer {
+        text-align: center;
+        background-color: #ecac1c;
+        color: #6b0411;
+        height: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        font-weight: bold;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+        min-height: 90%;
+      }
+
+      h1 {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin-top: 20px;
+        color: #6b0411;
+      }
+
+      h1 i {
+        font-size: 2em;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        max-width: 700px;
+        margin-top: 2em;
+        gap: 20px;
+      }
+
+      input[type="text"],
+      textarea {
+        border: 2px solid black;
+        border-radius: 15px;
+        padding: 15px;
+        font-size: 1em;
+        resize: vertical;
+      }
+
+      input[type="text"] {
+        height: 50px;
+      }
+
+      textarea {
+        height: 200px;
+      }
+
+      button {
+        background-color: #ecac1c;
+        color: #6b0411;
+        border: 1px solid #6b0411;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 0.7em;
+        border-radius: 10px;
+        cursor: pointer;
+        width: fit-content;
+        align-self: center;
+      }
+
+      .result {
+        font-weight: bold;
+        font-size: 1.3em;
+        color: #6b0411;
+        margin-top: 1em;
+        text-align: center;
+      }
+
+      footer i {
+        color: #6b0411;
+      }
+    </style>
+  </head>
+  <body>
+    <header><a href="./index.html">Back to Home Page</a></header>
+    <div class="container">
+      <h1>
+        Check if the news is fake
+        <i class="bx bx-news"></i>
+      </h1>
+
+      <form method="POST">
+        <input type="text" name="title" placeholder="News title" required />
+        <textarea name="content" placeholder="News content..." required></textarea>
+        <button type="submit">Check News</button>
+      </form>
+
+      {% if result %}
+        <p class="result"><strong>Result:</strong> {{ result }}</p>
+      {% endif %}
+    </div>
+
+    <footer>
+      <i class="bx bxs-heart"></i>
+      Made by Samriddhi, Harshvardhan, Sumedha, Himalay, Aditi, Kashish
+      <i class="bx bxs-heart"></i>
+    </footer>
+  </body>
+</html>

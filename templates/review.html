@@ -1,0 +1,136 @@
+<!-- templates/review.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake Review Detector</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: sans-serif;
+        background-color: #fef8fb;
+        overflow: auto;
+        scrollbar-width: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #6b0411;
+      }
+
+      header,
+      footer {
+        text-align: center;
+        background-color: #ecac1c;
+        color: #6b0411;
+        height: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        font-weight: bold;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px;
+      }
+
+      h1 {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        text-align: center;
+      }
+
+      h1 i {
+        font-size: 2em;
+      }
+
+      .heading {
+        text-align: center;
+        width: fit-content;
+      }
+
+      textarea {
+        width: 80%;
+        margin: 40px auto;
+        height: 50vh;
+        border: 2px solid black;
+        border-radius: 15px;
+        padding: 10px;
+        font-size: 1em;
+        resize: vertical;
+      }
+
+      button {
+        background-color: #ecac1c;
+        color: #6b0411;
+        border: 1px solid #6b0411;
+        font-family: sans-serif;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 0.5em 2em;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .result {
+        font-weight: bold;
+        color: #6b0411;
+        margin-top: 20px;
+        font-size: 1.2em;
+        background-color: #fff5da;
+        padding: 15px 25px;
+        border-radius: 12px;
+        border: 2px dashed #ecac1c;
+      }
+
+      footer i {
+        color: #6b0411;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header><a href="{{ url_for('index') }}">Back to Home Page</a></header>
+
+    <div class="container">
+      <div class="heading">
+        <h1>
+          Check to see if <br />your review is fake.
+          <i class="bx bx-search"></i>
+        </h1>
+      </div>
+
+      <form method="POST" action="/review">
+        <textarea name="text" placeholder="Write your review here..." required></textarea>
+        <button type="submit">Predict</button>
+      </form>
+
+      {% if result %}
+        <div class="result">
+          <p><strong>Result:</strong> {{ result }}</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <footer>
+      <i class="bx bxs-heart"></i>
+      Made by Samriddhi, Harshvardhan, Sumedha, Himalay, Aditi, Kashish
+      <i class="bx bxs-heart"></i>
+    </footer>
+  </body>
+</html>

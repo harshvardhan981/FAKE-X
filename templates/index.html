@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #fef8fb;
+      }
+
+      a {
+        text-decoration: none;
+        color: #6b0411;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      header,
+      footer {
+        text-align: center;
+        background-color: #ecac1c;
+        color: #6b0411;
+        height: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        font-weight: bold;
+      }
+
+      .heading {
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bold;
+      }
+
+      .model {
+        width: 25vw;
+        height: 20vh;
+        background-color: #ecac1c;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        border: 1px solid #6b0411;
+        color: #6b0411;
+        font-size: x-large;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header><a href="./index.html">Header</a></header>
+    <div class="heading">Detect any false data that you suspect.</div>
+    <div class="container">
+      <a href="{{ url_for('review') }}" class="model">Detect Fake Review</a>
+      <a href="{{ url_for('news') }}" class="model">Detect Fake News</a>  
+      <a href="{{ url_for('image_check') }}" class="model">Detect Fake Images</a>
+    </div>
+    <footer>
+      <i class="bx bxs-heart"></i>
+      Made by Samriddhi, Harshvardhan, Sumedha, Himalay, Aditi, Kashish
+      <i class="bx bxs-heart"></i>
+    </footer>
+  </body>
+</html>
